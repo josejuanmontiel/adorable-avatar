@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Adorable</title>
+</head>
+<body>
+
+    <form th:action="@{/result}" th:object="${paramSelected}" method="post">
+
+        <select th:field="*{eyes}">
+            <option th:each="type : ${face.eyes}" th:value="${type}" th:text="${type}">Face</option>
+        </select>
+
+        <select th:field="*{nose}">
+            <option th:each="type : ${face.nose}" th:value="${type}" th:text="${type}">Face</option>
+        </select>
+
+        <select th:field="*{mouth}">
+            <option th:each="type : ${face.mouth}" th:value="${type}" th:text="${type}">Face</option>
+        </select>
+
+        <input type="submit" />
+    </form>
+
+</body>
+</html>

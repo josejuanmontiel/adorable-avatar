@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+	<!-- Groovy problem - http://dozer.sourceforge.net/documentation/exclude.html -->
+	<mapping>
+		<class-a>io.adorable.repository.model.FaceParam</class-a>
+		<class-b>io.adorable.service.model.FaceParamView</class-b>
+		<field-exclude>
+			<a>metaClass</a>
+			<b>metaClass</b>
+		</field-exclude>
+	</mapping>
+
+	<mapping>
+		<class-a>io.adorable.repository.model.Face</class-a>
+		<class-b>io.adorable.service.model.FaceView</class-b>
+		<field-exclude>
+			<a>metaClass</a>
+			<b>metaClass</b>
+		</field-exclude>
+	</mapping>
+
+</mappings>  
