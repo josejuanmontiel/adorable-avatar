@@ -22,10 +22,13 @@ jar {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-repositories {
-	mavenCentral()
-}
 
+allprojects {
+	repositories {
+		mavenCentral()
+		maven { url "https://jitpack.io" }
+	}
+}
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
@@ -36,6 +39,9 @@ dependencies {
 	compile('net.sf.dozer:dozer:5.5.1')
 	compile('joda-time:joda-time:2.9.2')
 	compile('org.apache.httpcomponents:httpclient')
+
+	compile 'com.github.josejuanmontiel:dynamic-rest-template:-SNAPSHOT'
+
 }
 
 
