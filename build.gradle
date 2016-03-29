@@ -31,8 +31,12 @@ allprojects {
 }
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-web')
+
+	// compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	compile('org.thymeleaf:thymeleaf:3.0.0.BETA02')
+	compile('org.thymeleaf:thymeleaf-spring4:3.0.0.BETA02')
+
 	compile('org.codehaus.groovy:groovy')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	
@@ -41,6 +45,8 @@ dependencies {
 	compile('org.apache.httpcomponents:httpclient')
 
 	compile 'com.github.josejuanmontiel:dynamic-rest-template:-SNAPSHOT'
+
+	// compile('org.springframework.boot:spring-boot-devtools')
 
 }
 

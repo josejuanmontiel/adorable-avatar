@@ -1,17 +1,15 @@
 package io.adorable
 
-import io.adorable.utils.MyResponseErrorHandler
-import org.apache.http.impl.client.HttpClientBuilder
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.context.annotation.Bean
-import org.springframework.context.annotation.Configuration
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
-import org.springframework.web.client.RestTemplate
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.context.annotation.Bean
+import org.springframework.web.client.RestTemplate
+import org.springframework.web.servlet.LocaleResolver
+import org.springframework.web.servlet.i18n.CookieLocaleResolver
 
-@SpringBootApplication
+//make sure spring boot doesn't attempt 2.1 config
+@SpringBootApplication(exclude=[org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration.class])
 class ApiApplication {
 
 	@Autowired
