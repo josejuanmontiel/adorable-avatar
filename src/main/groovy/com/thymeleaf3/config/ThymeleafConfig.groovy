@@ -1,5 +1,6 @@
 package com.thymeleaf3.config
 
+import com.thymeleaf3.decoupled.GroovyDecoupledTemplateLogicResolver
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -10,13 +11,17 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.ViewResolver
+import org.thymeleaf.IEngineConfiguration;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
-import org.thymeleaf.spring4.view.ThymeleafViewResolver;
+import org.thymeleaf.spring4.view.ThymeleafViewResolver
+import org.thymeleaf.templatemode.TemplateMode
+import org.thymeleaf.templateparser.markup.decoupled.IDecoupledTemplateLogicResolver;
 import org.thymeleaf.templateresolver.ITemplateResolver
-import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
+import org.thymeleaf.templateresolver.ServletContextTemplateResolver
+import org.thymeleaf.templateresource.ITemplateResource;
 
 @Configuration
 @ConditionalOnClass([SpringTemplateEngine.class])
@@ -47,6 +52,10 @@ public class ThymeleafConfig implements ApplicationContextAware {
     public TemplateEngine templateEngine() {
         SpringTemplateEngine engine = new SpringTemplateEngine();
         engine.setTemplateResolver(templateResolver());
+
+        IDecoupledTemplateLogicResolver decoupledTemplateLogicResolver = new GroovyDecoupledTemplateLogicResolver();
+        engine.setDecoupledTemplateLogicResolver(decoupledTemplateLogicResolver);
+
         return engine;
     }
 
