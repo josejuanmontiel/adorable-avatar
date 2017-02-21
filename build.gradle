@@ -1,19 +1,23 @@
 buildscript {
 	ext {
-		springBootVersion = '1.3.3.RELEASE'
+		springBootVersion = '1.5.1.RELEASE'
 	}
 	repositories {
 		mavenCentral()
 	}
 	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") 
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 	}
 }
 
 apply plugin: 'groovy'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
-apply plugin: 'spring-boot' 
+apply plugin: 'org.springframework.boot'
+
+bootRepackage {
+    mainClass = 'io.adorable.ApiApplication'
+}
 
 jar {
 	baseName = 'api'
@@ -40,7 +44,7 @@ dependencies {
 	compile('org.codehaus.groovy:groovy')
 	compile('org.codehaus.groovy:groovy-templates:2.4.6')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-	
+
 	compile('net.sf.dozer:dozer:5.5.1')
 	compile('joda-time:joda-time:2.9.2')
 	compile('org.apache.httpcomponents:httpclient')

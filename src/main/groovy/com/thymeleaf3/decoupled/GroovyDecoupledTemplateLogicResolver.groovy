@@ -95,11 +95,13 @@ public final class GroovyDecoupledTemplateLogicResolver implements IDecoupledTem
             relativeLocation = relativeLocation + this.suffix;
         }
 
-        GroovyTemplateResource result = new GroovyTemplateResource(resource.relative(relativeLocation).reader());
 
-        return result;
+        if (resource.relative(relativeLocation).exists()) {
+            GroovyTemplateResource result = new GroovyTemplateResource(resource.relative(relativeLocation).reader());
+            return result;
+        } else {
+            return resource.relative(relativeLocation);
+        }
     }
-
-
 }
 
